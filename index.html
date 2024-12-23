@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <audio id="laughSound" src="laugh.mp3" preload="auto"></audio>
+    <title>Генератор дразнилок</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #insult {
+            font-size: 24px;
+            color: #ff6347;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3700b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Генератор дразнилок</h1>
+    <p id="insult">Нажми кнопку, чтобы получить дразнилку!</p>
+    <button onclick="generateInsult()">Сгенерировать</button>
+
+    <script>
+        function generateInsult() {
+            let randomBodyParts = ["глаз", "нос", "череп"];
+            let randomAdjectives = ["вонючая", "унылая", "дурацкая"];
+            let randomWords = ["муха", "выдра", "дубина", "мартышка", "крыса"];
+
+            let randomBodyPart = randomBodyParts[Math.floor(Math.random() * randomBodyParts.length)];
+            let randomAdjective = randomAdjectives[Math.floor(Math.random() * randomAdjectives.length)];
+            let randomWord = randomWords[Math.floor(Math.random() * randomWords.length)];
+
+            let randomInsult = "У тебя " + randomBodyPart + " словно " + randomAdjective + " " + randomWord + " !!!";
+
+            // Отображаем результат в браузере
+            document.getElementById("insult").textContent = randomInsult;
+
+            // Воспроизводим смех
+            document.getElementById("laughSound").play();
+        }
+    </script>
+</body>
+</html>
+
